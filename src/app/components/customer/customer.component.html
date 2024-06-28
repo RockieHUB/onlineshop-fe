@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="card p-5 mt-3">
+    <form #customerForm="ngForm" (ngSubmit)="checkCondition(customerForm)">
+      <mat-form-field appearance="outline">
+        <mat-label>Customer Name</mat-label>
+        <input
+          matInput
+          placeholder="Example : Jules Winfield"
+          name="customerName"
+          [(ngModel)]="customer.customerName"
+        />
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Customer Address</mat-label>
+        <textarea
+          matInput
+          placeholder="Example : Inglewood, California"
+          name="customerAddress"
+          [(ngModel)]="customer.customerAddress"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Customer Phone Number</mat-label>
+        <input
+          #phoneNumberInput
+          matInput
+          placeholder="Example : 424-288-2000"
+          name="customerPhone"
+          [(ngModel)]="customer.customerPhone"
+        />
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Customer Status</mat-label>
+        <mat-select name="isActive" [(ngModel)]="customer.isActive">
+          <mat-option [value]="true">Active</mat-option>
+          <mat-option [value]="false">InActive</mat-option>
+        </mat-select>
+        <!-- <mat-hint>Current status of the customer</mat-hint> -->
+      </mat-form-field>
+
+      <button type="button" mat-raised-button (click)="fileInput.click()">
+        Customer Image File
+      </button>
+      <input hidden (change)="onFileSelected($event)" #fileInput type="file" />
+      <span class="file-name m-3">{{ selectedFile?.name }}</span>
+
+      <mat-divider class="mt-3"></mat-divider>
+
+      <div class="text-center mt-3">
+        <button
+          mat-flat-button
+          color="warn"
+          class="m-2"
+          (click)="clearForm(customerForm)"
+          type="reset"
+        >
+          Clear
+        </button>
+        <button mat-flat-button color="primary" class="m-2" type="submit">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

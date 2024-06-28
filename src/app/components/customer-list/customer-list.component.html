@@ -1,0 +1,93 @@
+<div class="container">
+  <div align="right">
+    <button
+      mat-outline-button
+      color="accent"
+      class="m-2"
+      routerLink="/customer"
+    >
+      Add Data
+    </button>
+  </div>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- <ng-container matColumnDef="customerId">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.customerId }}</td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="customerName">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.customerName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="customerAddress">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.customerAddress }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="customerPhone">
+        <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+        <td mat-cell *matCellDef="let element">{{ element.customerPhone }}</td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="isActive">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.isActive }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="lastOrderDate">
+        <th mat-header-cell *matHeaderCellDef>Last Order Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastOrderDate }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="pic">
+        <th mat-header-cell *matHeaderCellDef>Picture</th>
+        <td mat-cell *matCellDef="let element">{{ element.pic }}</td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon
+            color="basic"
+            aria-label="Details Button"
+            class="m-1"
+            matRipple
+            (click)="openDialog(element.customerId)"
+            >info</mat-icon
+          >
+          <mat-icon
+            color="primary"
+            aria-label="Update Button"
+            class="m-1"
+            matRipple
+            (click)="updateCustomer(element.customerId)"
+            >edit</mat-icon
+          >
+          <mat-icon
+            color="warn"
+            aria-label="Delete Button"
+            class="m-1"
+            matRipple
+            (click)="deleteCustomer(element.customerId)"
+            >delete</mat-icon
+          >
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <mat-paginator
+    #paginator
+    [length]="total_data"
+    [pageSize]="10"
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

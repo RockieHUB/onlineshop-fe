@@ -1,0 +1,93 @@
+<div class="container">
+  <div align="right">
+    <button
+      mat-outline-button
+      color="accent"
+      class="m-2"
+      (click)="downloadOrderReport()"
+    >
+      Download Order Report
+    </button>
+    <button mat-outline-button color="accent" class="m-2" routerLink="/order">
+      Add Data
+    </button>
+  </div>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- <ng-container matColumnDef="orderId">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.orderId }}</td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="orderCode">
+        <th mat-header-cell *matHeaderCellDef>Order's Code</th>
+        <td mat-cell *matCellDef="let element">{{ element.orderCode }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="orderDate">
+        <th mat-header-cell *matHeaderCellDef>Order's Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.orderDate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalPrice">
+        <th mat-header-cell *matHeaderCellDef>Total Price</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.totalPrice | currency : "IDR" : "symbol" : "1.0-0" }}
+        </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="itemsName">
+        <th mat-header-cell *matHeaderCellDef>Item's Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.items.itemsName }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="customerName">
+        <th mat-header-cell *matHeaderCellDef>Customer's Name</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.customers.customerName }}
+        </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon
+            color="basic"
+            aria-label="Details Button"
+            class="m-1"
+            matRipple
+            (click)="openDialog(element.orderId)"
+            >info</mat-icon
+          >
+          <mat-icon
+            color="primary"
+            aria-label="Update Button"
+            class="m-1"
+            matRipple
+            (click)="updateOrder(element.orderId)"
+            >edit</mat-icon
+          >
+          <mat-icon
+            color="warn"
+            aria-label="Delete Button"
+            class="m-1"
+            matRipple
+            (click)="deleteOrder(element.orderId)"
+            >delete</mat-icon
+          >
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <mat-paginator
+    #paginator
+    [length]="total_data"
+    [pageSize]="10"
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Order Details</h2>
+
+<mat-dialog-content>
+  <div>
+    <p><strong>Order ID:</strong> {{ data.orderId }}</p>
+    <p><strong>Order Code:</strong> {{ data.orderCode }}</p>
+    <p><strong>Total Price:</strong> {{ data.totalPrice | currency:'IDR':'symbol':'1.0-0' }}</p>
+
+    @if (data.items) { 
+      <h6>Item Details</h6>
+      <p><strong>Item Name:</strong> {{ data.items.itemsName }}</p>
+      <p><strong>Item Price:</strong> {{ data.items.price | currency:'IDR':'symbol':'1.0-0'}}</p>
+    }
+
+    @if (data.customers) {
+      <h6>Customer Details</h6>
+      <p><strong>Customer Name:</strong> {{ data.customers.customerId }}</p>
+      <p><strong>Customer Phone:</strong> {{ data.customers.customerName }}</p>
+    }
+  </div>
+</mat-dialog-content>

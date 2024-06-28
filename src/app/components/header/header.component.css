@@ -1,0 +1,15 @@
+/* Target the <nav> element inside the toolbar */
+mat-toolbar {
+  display: flex; /* Enable flexbox layout */
+  justify-content: center; /* Center the items horizontally */
+  width: 100vw; /* Make nav take full width of the toolbar */
+  background-color: #3998ff;
+  /* background-color: var(--mat-primary-500); */
+}
+
+/* Optional: Add some spacing between links */
+mat-toolbar a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}

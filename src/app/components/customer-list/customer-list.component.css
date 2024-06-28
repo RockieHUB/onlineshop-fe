@@ -1,0 +1,45 @@
+/* General mat-icon style (optional) */
+.mat-icon {
+  cursor: pointer; /* Indicate that it's clickable */
+}
+
+/* Hover state */
+.mat-icon:hover {
+  /* background-color: lightgray;  You can add a subtle background color */
+  /* OR */
+  opacity: 0.8; /* Adjust the opacity for a hover effect */
+}
+
+/* Focus state */
+.mat-icon:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add a custom focus ring */
+}
+
+@media (max-width: 768px) {
+  /* Adjust the breakpoint as needed */
+  .table-container {
+    overflow-x: auto;
+  }
+
+  /* Target the container holding the table */
+  .table-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    width: 100%; /* Make the container responsive to the screen width */
+    margin-top: 1rem; /*Optional: Add some spacing from above elements */
+  }
+
+  /* Optional: Style the scrollbar (customize as needed) */
+  .table-container::-webkit-scrollbar {
+    height: 8px; /* Set the height of the scrollbar */
+  }
+
+  .table-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color of the track */
+  }
+
+  .table-container::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Add rounded corners to the thumb */
+  }
+}

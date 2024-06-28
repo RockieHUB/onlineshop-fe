@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Customer Details</h2>
+
+<mat-dialog-content class="mat-typography">
+  <mat-card>
+    <mat-card-content>
+      <div>
+        <ng-container *ngIf="isImageUrl(data.pic); else defaultImage">
+          <img
+            mat-card-image
+            src="{{ data.pic }}"
+            alt="Customer Image"
+            style="max-width: 100%; height: auto; object-fit: contain"
+          />
+        </ng-container>
+        <ng-template #defaultImage>
+          <img
+            mat-card-image
+            src="VanGoghPic.png"
+            alt="No Image Available"
+            style="max-width: 100%; height: auto; object-fit: contain"
+          />
+        </ng-template>
+        <p><strong>Customer ID:</strong> {{ data.customerId }}</p>
+        <p><strong>Customer Name:</strong> {{ data.customerName }}</p>
+        <p><strong>Customer Address:</strong> {{ data.customerAddress }}</p>
+        <p><strong>Customer Phone:</strong> {{ data.customerPhone }}</p>
+        <p>
+          <strong>Customer Status:</strong> {{ data.isActive ? 'Active' :
+          'Inactive' }}
+        </p>
+        <p>
+          <strong>Customer Last Order Date:</strong> {{ data.lastOrderDate |
+          date }}
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>

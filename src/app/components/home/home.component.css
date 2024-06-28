@@ -1,0 +1,21 @@
+.home-container {
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+  align-items: center;
+  padding: 20px;
+}
+
+.welcome-section,
+.dashboard {
+  text-align: center;
+  width: 100%; /* Make sections take full width */
+  margin-bottom: 20px; /* Add spacing between sections */
+}
+
+.welcome-section img,
+.dashboard img {
+  width: 100%; /* Make images fill container width */
+  height: auto; /* Maintain aspect ratio */
+  margin: auto;
+  margin-bottom: 2.5vh;
+}

@@ -1,0 +1,9 @@
+.footer {
+  background-color: #3998ff; /* Dark background */
+  color: white; /* White text */
+  text-align: center;
+  padding: 20px 0;
+  bottom: 0;
+  width: 100%; /* Make the footer fill the width */
+  margin: auto;
+}
